@@ -32,6 +32,14 @@
         font-size: 12px;
         line-height: 12px;
         color: #999999;
+        display: flex;
+        li {
+          float: left;
+          margin-right: 1vw;
+        }
+        li:first-child {
+          margin-left: 1vw;
+        }
       }
     }
     .edit-box {
@@ -53,19 +61,22 @@
     height: calc(100vh - 190px);
     background-color: #fafafa;
     padding: 35px 40px;
-    .message-box {
+    .message {
       height: 88px;
-      &__name {
-        margin-bottom: 12px;
+      &-box{
+        display: flex;
+        margin-bottom: 10px;
+        &__name {
+        color: #434a54;
         font-size: 16px;
-        color: #333333;
+        font-weight: bold; 
+        } 
         .day {
-          font-size: 12px;
           color: #999999;
-          vertical-align: top;
+          font-size: 12px;
           margin-left: 10px;
         }
-      }
+    }
       &__comment {
         margin-bottom: 46px;
         font-size: 14px;
@@ -73,17 +84,17 @@
       }
     }
   }
-  .message-form {
+  .form {
     height: 90px;
     background-color: #d2d2d2;
     padding: 20px 40px;
-    .new-message {
+    // display: flex;
+    .new_message {
       display: flex;
-      .input-box {
-        width: 100%;
-        display: flex;
+      &__mask {
         position: relative;
-        &__text {
+        width: 100%;
+        &__message {
           width: 100%;
           height: 50px;
           padding: 0 40px 0 10px;
@@ -92,16 +103,18 @@
         }
         &__image {
           cursor: pointer;
-          font-size: 1.3rem;
-          position: absolute;
-          top: 10px;
-          right: 10px;
-          &__file {
+            font-size: 1.3rem;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+          .icon {
+          }
+          .hidden {
             display: none;
           }
         }
       }
-      .submit-btn {
+      .form__submit {
         width: 100px;
         height: 50px;
         padding: 0 30px;
@@ -111,8 +124,9 @@
         cursor: pointer;
       }
     }
-  }
+  } 
 }
+
 
 
 .side-bar {
@@ -155,11 +169,14 @@
     .group {
       height: 91px;
       padding: 20px 20px 40px 20px;
-      color: #ffffff;
+      .group-font {
+        color: #ffffff;
+        text-decoration: none;
+      }
       &__name {
         height: 15px;
         width: 100%;
-        margin-bottom: 5px;
+        margin-bottom: 10px;
         font-size: 15px;
         line-height: 15px;
       }
