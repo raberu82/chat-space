@@ -2,34 +2,24 @@
   .group-info
     .group-show
       .group-show__name
-        test
+        = @group.name
       .group-show__menmber
-        Member : masa
+        Member : 
+        %ul
+          - @group.users.each do |user|
+            %li= user.name
     .edit-box
-      = link_to "#", class: "edit-link" do
+      = link_to edit_group_path(@group), class: "edit-link" do
         Edit
 
   .message-list
-    .message-box
-      .message-box__name
-        masa
-        %span.day
-          2019/11/20(Wed) 17:43:01
-      .message-box__comment
-        おはよう！
-    .message-box
-      .message-box__name
-        masa
-        %span.day
-          2019/11/20(Wed) 17:43:01
-      .message-box__comment
-        こんばんは！
+    = render @messages
 
-  .message-form
-    %form.new-message
-      .input-box
-        %input.input-box__text{:name => "text", :placeholder => "type a message", :type => "text", :value => ""}
-        %label.input-box__image
-          = icon('far', 'image' )
-          %input.input-box__image__file{:type => "file", :name => "message[image]", :id => "message_image"}
-      %input.submit-btn{:type => "submit", :value => "Send", :data-disable-with => "Send"}
+  .form
+    = form_for [@group, @message] do |f|
+      .new_message__mask
+        = f.text_field :content, class: 'new_message__mask__message', placeholder: 'type a message'
+        = f.label :image, class: 'new_message__mask__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'form__submit'
