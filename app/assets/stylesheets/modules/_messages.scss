@@ -61,8 +61,8 @@
     height: calc(100vh - 190px);
     background-color: #fafafa;
     padding: 35px 40px;
+    overflow: scroll;
     .message {
-      height: 88px;
       &-box{
         display: flex;
         margin-bottom: 10px;
@@ -76,7 +76,7 @@
           font-size: 12px;
           margin-left: 10px;
         }
-    }
+      }
       &__comment {
         margin-bottom: 46px;
         font-size: 14px;
@@ -166,6 +166,7 @@
   }
   .group-list {
     height: calc(100vh - 100px);
+    overflow: scroll;
     .group {
       height: 91px;
       padding: 20px 20px 40px 20px;
