@@ -85,4 +85,4 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 end
 
-server '18.180.35.136', user: 'ec2-user', roles: %w{app db web}
+
